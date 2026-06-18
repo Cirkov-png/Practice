@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/001-create-students.yaml
+  - include:
+      file: db/changelog/changes/002-create-courses.yaml
+  - include:
+      file: db/changelog/changes/003-create-lesson.yaml
+  - include:
+      file: db/changelog/changes/004-create-course-settings.yaml
+  - include:
+      file: db/changelog/changes/005-create-student-course.yaml
