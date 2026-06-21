@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: 002-create-courses
+      id: 004-create-lessons
       author: arseniy.bsuir@gmail.com
       changes:
         - createTable:
-            tableName: courses
+            tableName: lessons
             columns:
               - column:
                   name: id
@@ -18,16 +18,19 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: description
-                  type: VARCHAR(2000)
-              - column:
-                  name: price
-                  type: DECIMAL(19, 4)
+                  name: duration
+                  type: INT
                   constraints:
                     nullable: false
               - column:
-                  name: coins_paid
-                  type: DECIMAL(19, 4)
-                  defaultValueNumeric: 0
+                  name: course_id
+                  type: UUID
                   constraints:
                     nullable: false
+        - addForeignKeyConstraint:
+            constraintName: fk_lessons_course
+            baseTableName: lessons
+            baseColumnNames: course_id
+            referencedTableName: courses
+            referencedColumnNames: id
+            onDelete: CASCADE
