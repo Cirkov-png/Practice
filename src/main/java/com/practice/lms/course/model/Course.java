@@ -33,7 +33,7 @@ public class Course {
 
     @Embedded
     @AttributeOverride(name = "amount", column = @Column(name = "coins_paid", nullable = false))
-    private Money coinsPaid = Money.zero(); // Сразу инициализируем нулем
+    private Money coinsPaid = Money.zero();
 
     @OneToOne(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     private CourseSettings settings;

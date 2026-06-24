@@ -14,8 +14,8 @@ public class OpenApiConfig {
         return new OpenAPI()
                 .info(new Info()
                         .title("Learning Management System (LMS) API")
-                        .version("1.0.0") // Строго по регламенту проекта
-                        .description("REST API для управления курсами, студентами и уроками")
+                        .version("1.0.0")
+                        .description("REST API")
                         .contact(new Contact()
                                 .name("Arseniy")
                                 .email("support@practice.com")));

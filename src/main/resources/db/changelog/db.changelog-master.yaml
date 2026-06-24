@@ -7,3 +7,5 @@ databaseChangeLog:
       file: db/changelog/changes/003-create-course-settings.yaml
   - include:
       file: db/changelog/changes/004-create-lessons.yaml
+  - include:
+      file: db/changelog/changes/005-create-enrollments.yaml

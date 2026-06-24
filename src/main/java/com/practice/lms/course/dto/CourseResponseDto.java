@@ -8,5 +8,5 @@ public record CourseResponseDto(
         String title,
         String description,
         BigDecimal price,
-        BigDecimal coinsPaid // Добавили поле строго по ТЗ
+        BigDecimal coinsPaid
 ) {}

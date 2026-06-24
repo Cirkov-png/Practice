@@ -1,4 +1,7 @@
 spring:
+  profiles:
+    active: dev
+
   datasource:
     url: jdbc:h2:mem:lms;DB_CLOSE_DELAY=-1;NON_KEYWORDS=KEY,VALUE
     driver-class-name: org.h2.Driver
@@ -17,6 +20,19 @@ spring:
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
 
+  mail:
+    host: ${MAIL_HOST:sandbox.smtp.mailtrap.io}
+    port: ${MAIL_PORT:2525}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    from: ${MAIL_FROM:noreply@lms.practice.com}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
 springdoc:
   model-and-view-parameters-as-fields: true
 
@@ -28,6 +44,9 @@ management:
   endpoint:
     health:
       show-details: always
+  health:
+    mail:
+      enabled: ${MAIL_HEALTH_ENABLED:false}
 
 course:
   reminder:

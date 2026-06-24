@@ -11,7 +11,7 @@ import org.mapstruct.MappingTarget;
 public interface CourseSettingsMapper {
 
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "course", ignore = true) // Связь проставим в сервисе
+    @Mapping(target = "course", ignore = true)
     CourseSettings toEntity(CourseSettingsRequestDto request);
 
     @Mapping(target = "courseId", source = "course.id")

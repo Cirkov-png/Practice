@@ -21,7 +21,7 @@ import java.util.UUID;
 public class CourseSettingsServiceImpl implements CourseSettingsService {
 
     private final CourseSettingsRepository repository;
-    private final CourseService courseService; // Изоляция репозиториев соблюдена!
+    private final CourseService courseService;
     private final CourseSettingsMapper mapper;
 
     @Override

@@ -20,7 +20,7 @@ import java.util.UUID;
 public class LessonServiceImpl implements LessonService {
 
     private final LessonRepository repository;
-    private final CourseService courseService; // Изоляция репозиториев соблюдена!
+    private final CourseService courseService;
     private final LessonMapper mapper;
 
     @Override
@@ -39,7 +39,7 @@ public class LessonServiceImpl implements LessonService {
     public LessonResponseDto getById(final UUID id) {
         return repository.findById(id)
                 .map(mapper::toDto)
-                .orElseThrow(() -> new CourseException.NotFound(id)); // Можно расширить до LessonNotFound на Stage 2
+                .orElseThrow(() -> new CourseException.NotFound(id));
     }
 
     @Override

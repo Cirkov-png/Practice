@@ -5,6 +5,7 @@ import com.practice.lms.common.model.Money;
 import com.practice.lms.student.dto.StudentRequestDto;
 import com.practice.lms.student.dto.StudentResponseDto;
 import com.practice.lms.student.mapper.StudentMapper;
+import com.practice.lms.student.model.Student;
 import com.practice.lms.student.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +23,12 @@ public class StudentServiceImpl implements StudentService {
 
     private final StudentRepository repository;
     private final StudentMapper mapper;
+
+    @Override
+    public Student findByIdInternalWithLock(final UUID id) {
+        return repository.findByIdWithLock(id)
+                .orElseThrow(() -> new StudentException.NotFound(id));
+    }
 
     @Override
     @Transactional

@@ -15,5 +15,6 @@ public interface CourseService {
     CourseResponseDto update(UUID id, CourseRequestDto dto);
     void delete(UUID id);
     Course findByIdInternal(UUID id);
+    Course findByIdInternalWithLock(UUID id);
     List<Course> findCoursesStartingBetween(LocalDateTime start, LocalDateTime end);
 }

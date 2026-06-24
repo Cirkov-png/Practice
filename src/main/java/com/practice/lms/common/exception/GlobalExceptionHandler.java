@@ -6,12 +6,12 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.Map;
 
-@Slf4j
+@Slf4j // for log
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -50,6 +50,21 @@ public class GlobalExceptionHandler {
         );
 
         return ResponseEntity.badRequest().body(error);
+    }
+
+    @ExceptionHandler(NoResourceFoundException.class)
+    public ResponseEntity<ApiError> handleNoResourceFound(final NoResourceFoundException ex) {
+        log.debug("Resource not found: {}", ex.getResourcePath());
+
+        final var error = new ApiError(
+                LocalDateTime.now(),
+                404,
+                "Not Found",
+                "resource.not.found",
+                null
+        );
+
+        return ResponseEntity.status(404).body(error);
     }
 
     @ExceptionHandler(Exception.class)

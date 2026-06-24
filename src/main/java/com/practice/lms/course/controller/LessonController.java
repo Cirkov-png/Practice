@@ -25,7 +25,6 @@ public class LessonController {
             @RequestBody @Valid final LessonRequestDto request
     ) {
         log.info("API: Creating lesson for course id: {}", courseId);
-        // Protect the contract: ensure that the lesson is linked to the course from the URL
         final var scopedRequest = new LessonRequestDto(request.title(), request.duration(), courseId);
         return service.create(scopedRequest);
     }

@@ -71,6 +71,12 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public Course findByIdInternalWithLock(final UUID id) {
+        return repository.findByIdWithLock(id)
+                .orElseThrow(() -> new CourseException.NotFound(id));
+    }
+
+    @Override
     public List<Course> findCoursesStartingBetween(final LocalDateTime start, final LocalDateTime end) {
         return repository.findAllStartingBetween(start, end);
     }

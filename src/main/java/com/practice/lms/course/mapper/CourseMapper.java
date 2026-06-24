@@ -15,12 +15,12 @@ public interface CourseMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "settings", ignore = true)
     @Mapping(target = "lessons", ignore = true)
-    @Mapping(target = "coinsPaid", ignore = true) // По умолчанию при создании 0
-    @Mapping(target = "price", source = "price")  // Использует mapping метод ниже
+    @Mapping(target = "coinsPaid", ignore = true)
+    @Mapping(target = "price", source = "price")
     Course toEntity(CourseRequestDto request);
 
     @Mapping(target = "price", source = "price.amount")
-    @Mapping(target = "coinsPaid", source = "coinsPaid.amount") // Мапим из Value Object в BigDecimal
+    @Mapping(target = "coinsPaid", source = "coinsPaid.amount")
     CourseResponseDto toDto(Course course);
 
     @Mapping(target = "id", ignore = true)
