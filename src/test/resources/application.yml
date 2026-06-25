@@ -7,6 +7,7 @@ spring:
     port: 3025
     username: test
     password: test
+    from: noreply@lms.test.com
 
 course:
   reminder:
