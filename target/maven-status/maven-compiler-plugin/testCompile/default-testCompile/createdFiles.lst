@@ -1,0 +1,6 @@
+com\practice\lms\notification\service\CourseReminderServiceTest.class
+com\practice\lms\LmsApplicationTests.class
+com\practice\lms\enrollment\service\EnrollmentIntegrationTest.class
+com\practice\lms\enrollment\service\EnrollmentServiceImplTest.class
+com\practice\lms\testutil\TestDataFactory.class
+com\practice\lms\common\model\MoneyTest.class
