@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-create-courses
+      author: arseniy.bsuir@gmail.com
+      changes:
+        - createTable:
+            tableName: courses
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: VARCHAR(2000)
+              - column:
+                  name: price
+                  type: DECIMAL(19, 4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: coins_paid
+                  type: DECIMAL(19, 4)
+                  defaultValueNumeric: 0
+                  constraints:
+                    nullable: false

@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    open-in-view: false
+
+  mail:
+    host: localhost
+    port: 3025
+    username: test
+    password: test
+    from: noreply@lms.test.com
+
+course:
+  reminder:
+    cron: "0 0 0 1 1 ?"
