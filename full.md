@@ -474,3 +474,27 @@ follow [best practices](https://learn.microsoft.com/en-us/azure/architecture/bes
 | title                | String  |
 | duration             | Integer |
 | course (Many-to-One) | Course  |
+
+
+Stage 2 – Security
+Functional requirement [FR]
+The application's API endpoints must be accessible only to authenticated users.
+This authentication will vary by environment: locally, it will use Basic Auth, while in the cloud, it will be secured by the XSUAA service with OAuth2.
+The Spring Actuator endpoints will be specifically restricted to users with the "MANAGER" role in both local and cloud environments, also using Basic Auth.
+The system must use a PostgreSQL database running in a Docker container for local development, replacing the H2 in-memory database.
+Steps
+[SECURITY] Store user details in memory for Basic Auth flow
+[SECURITY] Secure API endpoints locally and allow access for all authenticated users (Basic Auth)
+[SECURITY] Configure security for Spring Actuator endpoints locally and allow access for MANAGER role only (Basic Auth)
+[SECURITY] Secure API endpoints in cloud using XSUAA service and allow access for all authenticated users (OAuth2)
+[SECURITY] Configure security for Spring Actuator endpoints in cloud (Basic Auth) and allow access for MANAGER role only (except /health)
+[DB] Run PostgreSQL in Docker and switch to it locally (H2 is removed)
+Achievements
+[SECURITY]
+Security configuration
+Basic Auth configuration
+OAuth2 configuration
+XSUAA service
+[DB]
+Docker
+PostgreSQL

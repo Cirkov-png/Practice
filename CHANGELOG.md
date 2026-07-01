@@ -1,5 +1,36 @@
 # Changelog
 
+## [1.1.0] - 2026-06-30
+
+### Stage 2 – Security
+
+#### Added
+- `spring-boot-starter-security` and `spring-boot-starter-oauth2-resource-server` dependencies
+- `SecurityConfig` (`@Profile("!cloud")`) — Basic Auth for local environment
+  - API endpoints accessible to all authenticated users
+  - Actuator endpoints restricted to `MANAGER` role only
+  - In-memory users: `user` (role USER) and `manager` (roles USER + MANAGER)
+- `CloudSecurityConfig` (`@Profile("cloud")`) — OAuth2/XSUAA for cloud environment
+  - API secured via JWT tokens from XSUAA service
+  - Actuator secured via Basic Auth with `MANAGER` role (`/health` is public)
+  - Two separate `SecurityFilterChain` beans with `@Order`
+- Swagger UI `Authorize` button via Basic Auth security scheme in `OpenApiConfig`
+- `docker-compose.yml` with PostgreSQL 17 for local development
+
+#### Changed
+- Switched from H2 in-memory to PostgreSQL (port `5433` locally via Docker)
+- H2 kept as `test` scope for unit and integration tests
+- Project version bumped to `1.1.0`
+- `OpenApiConfig` version updated to `1.1.0`
+
+#### Configuration
+- User credentials externalized via env variables: `SECURITY_USER_NAME`, `SECURITY_USER_PASSWORD`
+- Manager credentials externalized via env variables: `SECURITY_MANAGER_NAME`, `SECURITY_MANAGER_PASSWORD`
+- Database credentials externalized via env variables: `DB_USERNAME`, `DB_PASSWORD`
+- XSUAA issuer URI externalized via `${XSUAA_URL}` (cloud profile only)
+
+---
+
 ## [1.0.0] - 2026-06-24
 
 ### Stage 1 – Spring Basics

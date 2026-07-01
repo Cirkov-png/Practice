@@ -2,6 +2,9 @@ c:\Users\arsen\Desktop\lms\src\main\java\com\practice\lms\common\aop\LoggingAspe
 c:\Users\arsen\Desktop\lms\src\main\java\com\practice\lms\common\config\AsyncConfig.java
 c:\Users\arsen\Desktop\lms\src\main\java\com\practice\lms\common\config\OpenApiConfig.java
 c:\Users\arsen\Desktop\lms\src\main\java\com\practice\lms\common\config\SchedulingConfig.java
+c:\Users\arsen\Desktop\lms\src\main\java\com\practice\lms\common\config\security\CloudSecurityConfig.java
+c:\Users\arsen\Desktop\lms\src\main\java\com\practice\lms\common\config\security\KeycloakRoleConverter.java
+c:\Users\arsen\Desktop\lms\src\main\java\com\practice\lms\common\config\security\SecurityConfig.java
 c:\Users\arsen\Desktop\lms\src\main\java\com\practice\lms\common\exception\ApiError.java
 c:\Users\arsen\Desktop\lms\src\main\java\com\practice\lms\common\exception\GlobalExceptionHandler.java
 c:\Users\arsen\Desktop\lms\src\main\java\com\practice\lms\common\exception\LmsException.java
